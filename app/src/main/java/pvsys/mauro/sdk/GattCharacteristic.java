@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import static pvsys.mauro.sdk.MiBand1MonitorDevice.UIDS.lookup;
+
 public class GattCharacteristic {
 
     public static final String BASE_UUID = "0000%s-0000-1000-8000-00805f9b34fb";

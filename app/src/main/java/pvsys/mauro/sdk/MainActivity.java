@@ -11,15 +11,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private final static Logger LOG = new Logger(AppCompatActivity.class.getSimpleName());
 
     public static final int REQUEST_ENABLE_BT = 9;
+
     BluetoothManager btManager;
     BluetoothAdapter btAdapter;
+
     Button button;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = (Button)findViewById(R.id.button);
+        textView = (TextView) findViewById(R.id.textView);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
                 //start progress
                 device = deviceBounder.getBoundedDevice();
                 //stop progress
-                button.setVisibility(View.VISIBLE);
+                button.setEnabled(true);
+                textView.setText("Mi band:"+btDevice);
             }
         });
         discovery.start();
