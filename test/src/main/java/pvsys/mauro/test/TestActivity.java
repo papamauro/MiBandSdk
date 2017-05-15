@@ -34,10 +34,10 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(pvsys.mauro.sdk.R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
-        button = (Button)findViewById(pvsys.mauro.sdk.R.id.button);
-        textView = (TextView) findViewById(pvsys.mauro.sdk.R.id.textView);
+        button = (Button)findViewById(R.id.button);
+        textView = (TextView) findViewById(R.id.textView);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
