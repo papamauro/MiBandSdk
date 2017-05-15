@@ -95,13 +95,18 @@ public class MainActivity extends AppCompatActivity {
         BTDeviceDiscovery discovery = new BTDeviceDiscovery(btAdapter, new BTDeviceDiscovery.DeviceDiscoveryListener() {
             @Override
             public void onDeviceDiscovered(BluetoothDevice btDevice, String type, BTDeviceDiscovery btDeviceDiscovery) {
-                btDeviceDiscovery.stopScan();
-                deviceBounder.boundDevice(btDevice, type);
-                //start progress
-                device = deviceBounder.getBoundedDevice();
-                //stop progress
-                button.setEnabled(true);
-                textView.setText("Mi band:"+btDevice);
+
+                LOG.info("Founded:"+ btDevice.getAddress());
+                if (btDevice.getAddress().equals("88:0F:10:EC:46:09")){
+                    btDeviceDiscovery.stopScan();
+                    deviceBounder.boundDevice(btDevice, type);
+                    //start progress
+                    device = deviceBounder.getBoundedDevice();
+                    //stop progress
+                    button.setEnabled(true);
+                    textView.setText("Mi band:"+btDevice);
+                }
+
             }
         });
         discovery.start();

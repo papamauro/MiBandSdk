@@ -1,10 +1,9 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "pvsys.mauro.sdk"
         minSdkVersion 21
         targetSdkVersion 22
         versionCode 1
