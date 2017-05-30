@@ -14,6 +14,7 @@ import android.os.Message;
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,7 +23,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-public class BTSequentialClient extends BluetoothGattCallback implements Closeable {
+public class BTSequentialClient extends BluetoothGattCallback implements Closeable, Serializable {
 
 
     private final static Logger LOG = new Logger(BTSequentialClient.class.getSimpleName());
