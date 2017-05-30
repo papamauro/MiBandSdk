@@ -3,6 +3,7 @@ package pvsys.mauro.sdk;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGattCharacteristic;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -10,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class MiBand1MonitorDevice extends MonitorDevice {
+public class MiBand1MonitorDevice extends MonitorDevice implements Serializable{
 
     private final static Logger LOG = new Logger(MiBand1MonitorDevice.class.getSimpleName());
 
@@ -72,7 +73,7 @@ public class MiBand1MonitorDevice extends MonitorDevice {
         btClient.writeCharacteristic(MiBandService.UUID_CHARACTERISTIC_HEART_RATE_CONTROL_POINT, MiBandService.stopHeartMeasurementSleep);
 
     }
-
+    /*Domanda, perchè non gli passiamo direttamente il listener alla funzione qui sotto?*/
     BTSequentialClient.CharacteristicChangedListener characteristicChangedListener = new BTSequentialClient.CharacteristicChangedListener() {
         @Override
         public void onCharacteristicChanged(BluetoothGattCharacteristic characteristic) {
