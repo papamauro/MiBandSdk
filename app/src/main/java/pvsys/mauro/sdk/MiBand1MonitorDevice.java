@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class MiBand1MonitorDevice extends MonitorDevice implements Serializable{
+public class MiBand1MonitorDevice extends MonitorDevice{
 
     private final static Logger LOG = new Logger(MiBand1MonitorDevice.class.getSimpleName());
 
@@ -134,6 +134,8 @@ public class MiBand1MonitorDevice extends MonitorDevice implements Serializable{
         btClient.writeCharacteristic(MiBandService.UUID_CHARACTERISTIC_DATE_TIME, time);
 
     }
+
+
 
 
     public static class UIDS {

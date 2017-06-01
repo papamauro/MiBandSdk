@@ -2,6 +2,7 @@ package pvsys.mauro.sdk;
 
 
 import android.bluetooth.BluetoothDevice;
+import android.os.Parcelable;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-public abstract class MonitorDevice implements Serializable {
+public abstract class MonitorDevice {
 
     public static final int PERIODIC_WRITE_PERIOD_SEC = 2;
 
