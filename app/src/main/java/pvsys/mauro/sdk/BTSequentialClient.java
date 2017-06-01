@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-public class BTSequentialClient extends BluetoothGattCallback implements Closeable, Serializable {
+public class BTSequentialClient extends BluetoothGattCallback implements Closeable{
 
 
     private final static Logger LOG = new Logger(BTSequentialClient.class.getSimpleName());
