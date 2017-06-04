@@ -16,16 +16,15 @@ public class BTDeviceBounder {
 
     public MonitorDevice getBoundedDevice(){
         String preferredDeviceAddress = AppClass.getPreferredDeviceAddress();
-        String preferredDeviceType = AppClass.getPreferredDeviceType();
-        if (preferredDeviceAddress!=null && preferredDeviceType!=null) {
-            return MonitorDeviceFactory.newMonitorDevice(btAdapter.getRemoteDevice(preferredDeviceAddress), preferredDeviceType);
+        if (preferredDeviceAddress!=null) {
+            return MonitorDeviceFactory.newMonitorDevice(btAdapter.getRemoteDevice(preferredDeviceAddress));
         }
         return null;
     }
 
 
-    public void boundDevice(BluetoothDevice device, String deviceType) {
-        AppClass.setPreferredDevice(device.getAddress(), deviceType);
+    public void boundDevice(BluetoothDevice device) {
+        AppClass.setPreferredDevice(device.getAddress());
         LOG.info("found device: " + device.getName() + " (" + device.getAddress() + ") ");
         device.createBond();
         LOG.info("bonding");

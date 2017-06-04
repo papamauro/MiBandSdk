@@ -35,6 +35,7 @@ public class BTSequentialClient extends BluetoothGattCallback implements Closeab
     protected final BluetoothDevice device;
     protected final BluetoothGatt bluetoothGatt;
     private final Map<String, BluetoothGattCharacteristic> characteristicsMap = new HashMap<>();
+    private final Map<String, BluetoothGattService> servicesMap = new HashMap<>();
     private SequentialOperation sequentialOperation = new SequentialOperation();
 
     public BTSequentialClient(BluetoothDevice device) {
@@ -68,6 +69,7 @@ public class BTSequentialClient extends BluetoothGattCallback implements Closeab
             LOG.info("services discovered for " + gatt.getDevice().getName() + " (" + gatt.getDevice().getAddress() + "): ");
             List<BluetoothGattService> services = bluetoothGatt.getServices();
             for (BluetoothGattService service : services) {
+                servicesMap.put(service.getUuid().toString().toLowerCase(), service);
                 LOG.debug("service discovered " + service.getUuid());
                 List<BluetoothGattCharacteristic> characteristics = service.getCharacteristics();
                 for (BluetoothGattCharacteristic c : characteristics) {
@@ -270,4 +272,12 @@ public class BTSequentialClient extends BluetoothGattCallback implements Closeab
     public void wait(int ms) {
         try {Thread.sleep(ms);} catch (InterruptedException e) {}
     }
+
+    public Map<String, BluetoothGattService> getServicesMap(){
+        return servicesMap;
+    };
+
+    public Map<String, BluetoothGattCharacteristic> getCharacteristicsMap(){
+        return characteristicsMap;
+    };
 }

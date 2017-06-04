@@ -29,9 +29,9 @@ public abstract class MonitorDevice {
     private ScheduledFuture keepAliveScheduledFuture;
     private Map<String, byte[]> periodicWrite = new HashMap<>();
 
-    protected MonitorDevice(BluetoothDevice device) {
+    protected MonitorDevice(final BTSequentialClient btClient, BluetoothDevice device) {
         this.device = device;
-        this.btClient = new BTSequentialClient(device);
+        this.btClient = btClient;
 
         keepAliveScheduledFuture = keepAliveScheduler.scheduleAtFixedRate(new Runnable() {
             @Override

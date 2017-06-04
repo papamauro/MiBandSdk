@@ -10,7 +10,7 @@ import android.preference.PreferenceManager;
 public class AppClass extends Application {
 
     public static final String BONDED_DEVICE_ADDRESS = "BONDED_DEVICE_ADDRESS";
-    public static final String BONDED_DEVICE_TYPE = "BONDED_DEVICE_TYPE";
+    //public static final String BONDED_DEVICE_TYPE = "BONDED_DEVICE_TYPE";
 
     private final static Logger LOG = new Logger(AppClass.class.getSimpleName());
 
@@ -29,17 +29,17 @@ public class AppClass extends Application {
     }
 
 
-    public static void setPreferredDevice(String address, String type) {
+    public static void setPreferredDevice(String address) {
         pref.edit().putString(BONDED_DEVICE_ADDRESS, address).apply();
-        pref.edit().putString(BONDED_DEVICE_TYPE, type).apply();
+        //pref.edit().putString(BONDED_DEVICE_TYPE, type).apply();
     }
 
     public static String getPreferredDeviceAddress() {
         return pref.getString(BONDED_DEVICE_ADDRESS, null);
     }
 
-    public static String getPreferredDeviceType() {
+    /*public static String getPreferredDeviceType() {
         return pref.getString(BONDED_DEVICE_TYPE, null);
-    }
+    }*/
 
 }

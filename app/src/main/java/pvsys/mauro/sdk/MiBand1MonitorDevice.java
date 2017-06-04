@@ -15,8 +15,8 @@ public class MiBand1MonitorDevice extends MonitorDevice{
 
     private final static Logger LOG = new Logger(MiBand1MonitorDevice.class.getSimpleName());
 
-    public MiBand1MonitorDevice(BluetoothDevice device) {
-        super(device);
+    public MiBand1MonitorDevice(BTSequentialClient btClient, BluetoothDevice device) {
+        super(btClient, device);
     }
 
     public void initialize() {

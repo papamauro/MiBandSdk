@@ -26,7 +26,7 @@ tools:context="pvsys.mauro.test.TestActivity">
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:text="Vibrate"
+        android:text="@string/test_button"
         android:layout_marginTop="100dp"/>
 </RelativeLayout>
 

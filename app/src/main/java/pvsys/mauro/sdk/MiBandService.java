@@ -50,7 +50,6 @@ public class MiBandService {
 
     public static final UUID UUID_CHARACTERISTIC_PAIR = UUID.fromString(String.format(BTLE_BASE_UUID, "FF0F"));
 
-
     public static final UUID UUID_CHARACTERISTIC_HEART_RATE_CONTROL_POINT = UUID.fromString((String.format(BTLE_BASE_UUID, "2A39")));
     public static final UUID UUID_CHARACTERISTIC_HEART_RATE_MEASUREMENT = UUID.fromString((String.format(BTLE_BASE_UUID, "2A37")));
 

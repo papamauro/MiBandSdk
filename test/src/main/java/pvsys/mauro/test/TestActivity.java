@@ -34,9 +34,10 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_test);
 
         button = (Button)findViewById(R.id.button);
+        button.setEnabled(false);
         textView = (TextView) findViewById(R.id.textView);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,13 +110,15 @@ public class TestActivity extends AppCompatActivity {
 
                 LOG.info("Founded:"+ btDevice.getAddress());
                 if (btDevice.getAddress().equals("88:0F:10:EC:46:09")){
+                    //Mi band 1s: 88:0F:10:EC:46:09
+                    //Mi band 2: D3:96:95:3C:A6:50
+                    textView.setText("Mi Band: " + btDevice.getAddress());
                     btDeviceDiscovery.stopScan();
-                    deviceBounder.boundDevice(btDevice, type);
+                    deviceBounder.boundDevice(btDevice);
                     //start progress
                     device = deviceBounder.getBoundedDevice();
                     //stop progress
                     button.setEnabled(true);
-                    textView.setText("Mi band:"+btDevice);
                 }
 
             }
